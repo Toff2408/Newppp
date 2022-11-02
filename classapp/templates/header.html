@@ -1,0 +1,52 @@
+<!-- header -->
+<nav class="navbar navbar-expand-lg sticky-top our_border">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/index.html">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'products' %}">Products</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categories
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{% url 'categories' %}">All Categories</a></li>
+              {% for cap in categories  %}
+                <li><a class="dropdown-item" href="{% url 'singlecategory' cap.id %}">{{cap.title}}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li class="nav-item dropdownn me-5">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-user"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/categories.html">Profile</a></li>
+              <li><a class="dropdown-item" href="category.html">cart</a></li>
+              <li><a class="dropdown-item" href="{% url 'signout' %}">signout</a></li>
+              <li><a class="dropdown-item" href="{% url 'signin' %}">signin</a></li>
+              <li><a class="dropdown-item" href="{% url 'signup' %}">signup</a></li>
+            </ul>
+          </li>
+          <li class="nav-item me-3 mt-2">
+              <div class="modemoon">
+                <i class="fa-solid fa-moon"></i>
+              </div>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn search_btn" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+<!-- headeer done -->
